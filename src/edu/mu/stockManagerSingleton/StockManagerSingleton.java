@@ -81,7 +81,7 @@ public class StockManagerSingleton {
 	
 	public boolean removeItem(MediaProduct product ) {
 		//needs to be completed 
-		return true;
+		return true;//test comment
 	}
 	
 	public boolean saveStock() {
