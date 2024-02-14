@@ -70,18 +70,26 @@ public class StockManagerSingleton {
 	}
 	
 	public boolean updateItemPrice(MediaProduct product, double newPrice) {
-		//needs to be completed
-		return true;
+		for (MediaProduct p : productList) { //Find matching product in productList
+			if (p.equals(product)) { //Make sure the current product matches the one specified
+				p.setPrice(newPrice); //Update the product price to newPrice
+				return true; 
+				
+			}
+		}
+		return false;
 	}
 	
 	public boolean addItem(MediaProduct product) {
-		//needs to be completed 
-		return true;
+		if (!productList.contains(product)) { //Check if product is not already in productList
+			productList.add(product); //Add product to productList if not
+			return true;
+		}
+		return false;
 	}
-	
-	public boolean removeItem(MediaProduct product ) {
-		//needs to be completed 
-		return true;//test comment
+
+	public boolean removeItem(MediaProduct product) {
+		return productList.remove(product); //Remove product from productList and return true if removed
 	}
 	
 	public boolean saveStock() {
