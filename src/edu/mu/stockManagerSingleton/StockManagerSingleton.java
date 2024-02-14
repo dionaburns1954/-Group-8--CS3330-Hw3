@@ -8,7 +8,7 @@ import edu.mu.tapeRecordProduct.TapeRecordProduct;
 import edu.mu.vinylRecordProduct.VinylRecordProduct;
 
 public class StockManagerSingleton {
-	private String inventoryFilePath;
+	private String inventoryFilePath = "inventory.csv";
 	
 	
 	public boolean initializeStock() {
