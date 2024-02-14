@@ -5,7 +5,7 @@ public class MediaProduct {
 	protected double price;
 	protected int year;
 	protected Genre genre;
-	
+
 	protected enum Genre {
 		ROCK,
 		POP,
@@ -16,11 +16,12 @@ public class MediaProduct {
 		CHILDREN
 	}
 
-	public MediaProduct(String title, double price, int year) {
+	public MediaProduct(String title, double price, int year, Genre genre) {
 		//super();
 		this.title = title;
 		this.price = price;
 		this.year = year;
+		this.genre = genre;
 	}
 
 	@Override
@@ -52,7 +53,12 @@ public class MediaProduct {
 		this.year = year;
 	}
 	
-	
-	
+	public Genre getGenre() {
+		return genre;
+	}
+
+	public void setGenre(Genre genre) {
+		this.genre = genre;
+	}
 	
 }
