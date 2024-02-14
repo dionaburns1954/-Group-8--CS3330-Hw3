@@ -5,10 +5,10 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import edu.mu.cdRecordProduct.CDRecordProduct;
+import edu.mu.mediaProduct.CDRecordProduct;
 import edu.mu.mediaProduct.MediaProduct;
-import edu.mu.tapeRecordProduct.TapeRecordProduct;
-import edu.mu.vinylRecordProduct.VinylRecordProduct;
+import edu.mu.mediaProduct.TapeRecordProduct;
+import edu.mu.mediaProduct.VinylRecordProduct;
 
 public class StockManagerSingleton {
 	private String inventoryFilePath = "inventory.csv";
