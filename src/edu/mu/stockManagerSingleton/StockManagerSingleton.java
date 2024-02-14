@@ -6,13 +6,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import edu.mu.mediaProduct.CDRecordProduct;
+import edu.mu.mediaProduct.Genre;
 import edu.mu.mediaProduct.MediaProduct;
 import edu.mu.mediaProduct.TapeRecordProduct;
 import edu.mu.mediaProduct.VinylRecordProduct;
 
 public class StockManagerSingleton {
 	private String inventoryFilePath = "inventory.csv";
-	private ArrayList<MediaProduct> productList;
+	public ArrayList<MediaProduct> productList = new ArrayList<MediaProduct>();
 	
 	
 	
@@ -25,6 +26,7 @@ public class StockManagerSingleton {
 		 */
 		try {
 			
+			//opens new file
 			File file = new File(inventoryFilePath);
 			Scanner fileScanner = new Scanner(file);
 			
@@ -32,22 +34,29 @@ public class StockManagerSingleton {
 			
 			while(fileScanner.hasNext()) {
 				//do something
-				String product = fileScanner.nextLine();
-				System.out.println(product);
-				String[] splitProduct = product.split(" ", 5);
+				String product = fileScanner.nextLine(); //gets whole line of data
+				//System.out.println(product);
+				String[] splitProduct = product.split(",");
 				
-				for(int i = 0; i < splitProduct.length; i++) {
-					
-					if(splitProduct[0].equals("Vinyl")) {
-						
-					}
-					else if(splitProduct[0].equals("CD")) {
-						
-					}
-					else { //has to equal tape
-						
-					}
-					
+				//getting data from split string
+				String title = splitProduct[1];
+				double price = Double.parseDouble(splitProduct[2]);
+				int year = Integer.parseInt(splitProduct[3]);
+				Genre genre = splitProduct[4];
+				
+				
+				//creating objects and adding them to ArrayList
+				if(splitProduct[0].equals("Vinyl")) {
+					VinylRecordProduct vinylRecord = new VinylRecordProduct(title, price, year, genre);
+					productList.add(vinylRecord);
+				}
+				else if(splitProduct[0].equals("CD")) {
+					CDRecordProduct cdRecordProduct = new CDRecordProduct(title, price, year, genre);
+					productList.add(cdRecordProduct);
+				}
+				else { //has to equal tape
+					TapeRecordProduct tapeRecordProduct = new TapeRecordProduct(title, price, year, genre);
+					productList.add(tapeRecordProduct);
 				}
 				
 			}
@@ -55,7 +64,7 @@ public class StockManagerSingleton {
 			fileScanner.close();
 			return true;
 		}catch(FileNotFoundException e) {
-			
+			System.out.println("ERROR! COULD NOT OPEN FILE");
 		}
 		return false;
 	}
