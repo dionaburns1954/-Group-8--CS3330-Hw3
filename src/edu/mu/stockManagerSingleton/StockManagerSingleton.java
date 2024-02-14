@@ -14,7 +14,7 @@ import edu.mu.mediaProduct.VinylRecordProduct;
 public class StockManagerSingleton {
 	private String inventoryFilePath = "inventory.csv";
 	public ArrayList<MediaProduct> productList = new ArrayList<MediaProduct>();
-	System.out.println("WHy");
+	
 	
 	
 	public boolean initializeStock() throws FileNotFoundException {
