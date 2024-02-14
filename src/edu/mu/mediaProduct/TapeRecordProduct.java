@@ -1,6 +1,4 @@
-package edu.mu.tapeRecordProduct;
-import edu.mu.mediaProduct.*;
-
+package edu.mu.mediaProduct;
 
 public class TapeRecordProduct extends MediaProduct{
 

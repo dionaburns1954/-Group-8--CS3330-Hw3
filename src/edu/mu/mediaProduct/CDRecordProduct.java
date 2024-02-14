@@ -1,5 +1,4 @@
-package edu.mu.cdRecordProduct;
-import edu.mu.mediaProduct.*;
+package edu.mu.mediaProduct;
 
 public class CDRecordProduct extends MediaProduct{
 

@@ -1,6 +1,4 @@
-package edu.mu.vinylRecordProduct;
-import edu.mu.mediaProduct.*;
-
+package edu.mu.mediaProduct;
 
 public class VinylRecordProduct extends MediaProduct{
 
