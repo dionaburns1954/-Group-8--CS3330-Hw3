@@ -8,4 +8,5 @@ public class CDRecordProduct extends MediaProduct{
 		// TODO Auto-generated constructor stub
 	}
 	//copy constructor needs to be added
+	
 }
