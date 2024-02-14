@@ -42,7 +42,7 @@ public class StockManagerSingleton {
 				String title = splitProduct[1];
 				double price = Double.parseDouble(splitProduct[2]);
 				int year = Integer.parseInt(splitProduct[3]);
-				Genre genre = splitProduct[4];
+				Genre genre = Genre.valueOf(splitProduct[4]);
 				
 				
 				//creating objects and adding them to ArrayList
