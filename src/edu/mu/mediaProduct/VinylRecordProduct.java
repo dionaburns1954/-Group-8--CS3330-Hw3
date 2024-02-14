@@ -7,6 +7,10 @@ public class VinylRecordProduct extends MediaProduct{
 		// TODO Auto-generated constructor stub
 	}
 	
+	@Override
+	public String toString() {
+		return "Tape," + title + "," + price + "," + year + "," + genre.toString();
+	}
 	//copy constructor needs to be added
 
 }
