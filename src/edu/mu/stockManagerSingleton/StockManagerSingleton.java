@@ -14,7 +14,7 @@ import edu.mu.mediaProduct.VinylRecordProduct;
 public class StockManagerSingleton {
 	private String inventoryFilePath = "inventory.csv";
 	public ArrayList<MediaProduct> productList = new ArrayList<MediaProduct>();
-	
+	System.out.println("WHy");
 	
 	
 	public boolean initializeStock() throws FileNotFoundException {
@@ -74,6 +74,7 @@ public class StockManagerSingleton {
 			if (p.equals(product)) { //Make sure the current product matches the one specified
 				p.setPrice(newPrice); //Update the product price to newPrice
 				return true; 
+				
 			}
 		}
 		return false;
