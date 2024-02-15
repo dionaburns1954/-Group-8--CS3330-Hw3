@@ -11,7 +11,7 @@ public class VinylRecordProduct extends MediaProduct{
 	}// copy constructor
 	@Override
 	public String toString() {
-		return "Tape," + title + "," + price + "," + year + "," + genre.toString();
+		return "Vinyl," + title + "," + price + "," + year + "," + genre.toString();
 	}
 	
 

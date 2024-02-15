@@ -11,7 +11,7 @@ public class CDRecordProduct extends MediaProduct{
 	}
 	@Override
 	public String toString() {
-		return "Tape," + title + "," + price + "," + year + "," + genre.toString();
+		return "CD," + title + "," + price + "," + year + "," + genre.toString();
 	}
 	
 	
