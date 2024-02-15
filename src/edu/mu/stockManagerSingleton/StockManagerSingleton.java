@@ -17,7 +17,17 @@ public class StockManagerSingleton {
 	private String inventoryFilePath = "inventory.csv";
 	public ArrayList<MediaProduct> productList = new ArrayList<MediaProduct>();
 	
+	private static StockManagerSingleton instance = null;
 	
+	private StockManagerSingleton() {
+	}
+	
+	public static StockManagerSingleton getInstance() {
+		if(instance == null) {
+			instance = new StockManagerSingleton();
+		}
+		return instance;
+	}
 	
 	public boolean initializeStock() throws FileNotFoundException {
 		//needs to be completed 

@@ -8,7 +8,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		StockManagerSingleton test = new StockManagerSingleton();
+		StockManagerSingleton test = StockManagerSingleton.getInstance();
 		try {
 			test.initializeStock();
 			System.out.println(test.productList.toString());
@@ -17,7 +17,7 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		test.saveStock();
 	}
 
 }
