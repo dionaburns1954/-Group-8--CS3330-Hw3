@@ -2,6 +2,8 @@ package edu.mu.stockManagerSingleton;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -93,8 +95,25 @@ public class StockManagerSingleton {
 	}
 	
 	public boolean saveStock() {
-		//needs to be completed 
-		return true;
+		try {
+			FileWriter writer = new FileWriter(inventoryFilePath);
+			
+			// Write the CSV header
+			String header = "Type,Title,Price,Year,Genre\n";
+			writer.write(header);
+			
+			// Write the details of all products in the inventory to file
+			for(MediaProduct product : productList) {
+				writer.write(product.toString() + "\n");
+			}
+			writer.close(); // Close the writer
+			return true;
+		} catch(FileNotFoundException e) {
+			System.out.println("File \"" + inventoryFilePath + "\" could not be found");
+		} catch(IOException e) {
+			System.out.println("Cannot write to file!\n" + e);
+		}
+		return false;
 	}
 	
 	public ArrayList<MediaProduct> getMediaProductBelowPrice(int maxPrice) {
