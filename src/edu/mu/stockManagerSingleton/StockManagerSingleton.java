@@ -101,6 +101,11 @@ public class StockManagerSingleton {
 		//needs to be completed
 		
 		ArrayList<MediaProduct> list = new ArrayList<MediaProduct>();
+		for (MediaProduct product : productList) {// loop through media inventory 
+			if (product.getPrice() < maxPrice) {// compare product price with the maxprice that is given for function 
+				list.add(new MediaProduct(product));// using the copy constructor so that way we dont lose data in product constructor
+			}
+		}
 		return list;
 	}
 	
