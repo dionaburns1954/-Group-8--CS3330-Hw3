@@ -105,7 +105,9 @@ public class StockManagerSingleton {
 	}
 	
 	public void printListOfMediaProduct(ArrayList<MediaProduct> productList) {
-		//needs to be completed
+		for (MediaProduct product : productList) {
+			System.out.println( product.getTitle() + " - " + product.getPrice() + " - " + product.getYear()+ " - " + product.getGenre());
+		}
 	}
 	
 	public ArrayList<VinylRecordProduct> getVinylRecordList(ArrayList<MediaProduct> productList) {
