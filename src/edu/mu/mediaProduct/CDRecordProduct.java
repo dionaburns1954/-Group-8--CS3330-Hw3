@@ -6,11 +6,13 @@ public class CDRecordProduct extends MediaProduct{
 		super(title, price, year, genre);
 		// TODO Auto-generated constructor stub
 	}
-// test 
+	public CDRecordProduct(CDRecordProduct copy) {
+		super(copy);// copy constructor
+	}
 	@Override
 	public String toString() {
 		return "Tape," + title + "," + price + "," + year + "," + genre.toString();
 	}
-	//copy constructor needs to be added
+	
 	
 }

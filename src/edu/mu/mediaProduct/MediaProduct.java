@@ -13,6 +13,12 @@ public class MediaProduct {
 		this.year = year;
 		this.genre = genre;
 	}
+	public MediaProduct(MediaProduct copy) {
+		this.title = copy.title;
+		this.price = copy.price;
+		this.year = copy.year;
+		this.genre = copy.genre;
+	} // copy constructor 
 
 	@Override
 	public String toString() {

@@ -6,11 +6,13 @@ public class VinylRecordProduct extends MediaProduct{
 		super(title, price, year, genre);
 		// TODO Auto-generated constructor stub
 	}
-	
+	public VinylRecordProduct(VinylRecordProduct copy) {
+		super(copy);
+	}// copy constructor
 	@Override
 	public String toString() {
 		return "Tape," + title + "," + price + "," + year + "," + genre.toString();
 	}
-	//copy constructor needs to be added
+	
 
 }
