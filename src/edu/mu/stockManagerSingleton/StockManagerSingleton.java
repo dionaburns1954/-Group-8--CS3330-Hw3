@@ -15,8 +15,8 @@ import edu.mu.mediaProduct.VinylRecordProduct;
 
 public class StockManagerSingleton {
 	
-	private String inventoryFilePath = "inventory.csv"; //needs getter
-	private ArrayList<MediaProduct> productList = new ArrayList<MediaProduct>(); //needs getter
+	private final String inventoryFilePath = "inventory.csv";
+	private ArrayList<MediaProduct> productList = new ArrayList<MediaProduct>();
 	private static StockManagerSingleton instance = null;
 	
 	private StockManagerSingleton() {
@@ -30,11 +30,11 @@ public class StockManagerSingleton {
 	}
 	
 	public String getInventoryFilePath() {
-		return inventoryFilePath;
+		return new String(inventoryFilePath);
 	}
 
 	public ArrayList<MediaProduct> getProductList() {
-		return productList;
+		return new ArrayList<MediaProduct>(productList);
 	}
 	
 	public boolean initializeStock() throws FileNotFoundException {
