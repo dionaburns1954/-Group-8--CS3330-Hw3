@@ -127,9 +127,9 @@ public class StockManagerSingleton {
 	}
 	
 	public ArrayList<MediaProduct> getMediaProductBelowPrice(int maxPrice) {
-		//needs to be completed
 		
 		ArrayList<MediaProduct> list = new ArrayList<MediaProduct>();
+		
 		for (MediaProduct product : productList) {// loop through media inventory 
 			if (product.getPrice() < maxPrice) {// compare product price with the maxprice that is given for function 
 				list.add(new MediaProduct(product));// using the copy constructor so that way we dont lose data in product constructor
@@ -145,23 +145,41 @@ public class StockManagerSingleton {
 	}
 	
 	public ArrayList<VinylRecordProduct> getVinylRecordList(ArrayList<MediaProduct> productList) {
-		//needs to be completed
 		
 		ArrayList<VinylRecordProduct> list = new ArrayList<VinylRecordProduct>();
+		
+		for(int i = 0; i < productList.size(); i++) {
+			if(productList.get(i).toString().contains("Vinyl")) {
+				list.add((VinylRecordProduct) productList.get(i));
+			}
+		}
+		//System.out.println(list.toString());
 		return list;
 	}
 	
 	public ArrayList<CDRecordProduct> getCDRecordList(ArrayList<MediaProduct> productList) {
-		//needs to be completed
 		
 		ArrayList<CDRecordProduct> list = new ArrayList<CDRecordProduct>();
+		
+		for(int i = 0; i < productList.size(); i++) {
+			if(productList.get(i).toString().contains("CD")) {
+				list.add((CDRecordProduct) productList.get(i));
+			}
+		}
+		//System.out.println(list.toString());
 		return list;
 	}
 	
 	public ArrayList<TapeRecordProduct> getTapeRecordList(ArrayList<MediaProduct> productList) {
-		//needs to be completed
 		
 		ArrayList<TapeRecordProduct> list = new ArrayList<TapeRecordProduct>();
+		
+		for(int i = 0; i < productList.size(); i++) {
+			if(productList.get(i).toString().contains("Tape")) {
+				list.add((TapeRecordProduct) productList.get(i));
+			}
+		}
+		//System.out.println(list.toString());
 		return list;
 	}
 	
