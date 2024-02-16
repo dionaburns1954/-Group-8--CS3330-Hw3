@@ -37,7 +37,7 @@ public class StockManagerSingleton {
 		return new ArrayList<MediaProduct>(productList);
 	}
 	
-	public boolean initializeStock() throws FileNotFoundException {
+	public boolean initializeStock() {
 		//needs to be completed 
 		
 		/* Goals 
@@ -74,17 +74,21 @@ public class StockManagerSingleton {
 					CDRecordProduct cdRecordProduct = new CDRecordProduct(title, price, year, genre);
 					productList.add(cdRecordProduct);
 				}
-				else { //has to equal tape
+				else if(splitProduct[0].equals("Tape")) {
 					TapeRecordProduct tapeRecordProduct = new TapeRecordProduct(title, price, year, genre);
 					productList.add(tapeRecordProduct);
 				}
-				
+				else {
+					System.out.println("Invalid product type " + splitProduct[0] + ". Skipping [" + product + "]. This item will be lost when the file is written.");
+				}
 			}
 			
 			fileScanner.close();
 			return true;
-		}catch(FileNotFoundException e) {
+		} catch(FileNotFoundException e) {
 			System.out.println("ERROR! COULD NOT OPEN FILE");
+		} catch(Exception e) {
+			System.out.println("Cannot initialize stock. " + e);
 		}
 		return false;
 	}
