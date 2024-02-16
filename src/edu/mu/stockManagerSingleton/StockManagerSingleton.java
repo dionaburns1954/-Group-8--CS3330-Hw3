@@ -14,8 +14,9 @@ import edu.mu.mediaProduct.TapeRecordProduct;
 import edu.mu.mediaProduct.VinylRecordProduct;
 
 public class StockManagerSingleton {
+	
 	private String inventoryFilePath = "inventory.csv"; //needs getter
-	public ArrayList<MediaProduct> productList = new ArrayList<MediaProduct>(); //needs getter
+	private ArrayList<MediaProduct> productList = new ArrayList<MediaProduct>(); //needs getter
 	private static StockManagerSingleton instance = null;
 	
 	private StockManagerSingleton() {
