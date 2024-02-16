@@ -105,8 +105,9 @@ public class StockManagerSingleton {
 	}
 	
 	public boolean saveStock() {
-		try {
-			FileWriter writer = new FileWriter(inventoryFilePath);
+		// Look for the file specified and open it
+		try(FileWriter writer = new FileWriter(inventoryFilePath);){
+
 			
 			// Write the CSV header
 			String header = "Type,Title,Price,Year,Genre\n";
@@ -116,8 +117,7 @@ public class StockManagerSingleton {
 			for(MediaProduct product : productList) {
 				writer.write(product.toString() + "\n");
 			}
-			writer.close(); // Close the writer
-			return true;
+			return true; // File writer closes automatically due to try-with-resource block 
 		} catch(FileNotFoundException e) {
 			System.out.println("File \"" + inventoryFilePath + "\" could not be found");
 		} catch(IOException e) {
