@@ -38,11 +38,9 @@ public class StockManagerSingleton {
 	}
 	
 	public boolean initializeStock() {
-		//needs to be completed 
-		
 		/* Goals 
 		 * Step 1: Open the file
-		 * Step 2: Loop through file and add data to something?
+		 * Step 2: Loop through file and add data to inventory
 		 */
 		try {
 			
@@ -50,22 +48,19 @@ public class StockManagerSingleton {
 			File file = new File(inventoryFilePath);
 			Scanner fileScanner = new Scanner(file);
 			
-			fileScanner.nextLine();//skips a row
+			fileScanner.nextLine(); // Skip the header row
 			
 			while(fileScanner.hasNext()) {
-				//do something
-				String product = fileScanner.nextLine(); //gets whole line of data
-				//System.out.println(product);
+				String product = fileScanner.nextLine(); // Gets a whole line of data
 				String[] splitProduct = product.split(",");
 				
-				//getting data from split string
+				// Get data from split string
 				String title = splitProduct[1];
 				double price = Double.parseDouble(splitProduct[2]);
 				int year = Integer.parseInt(splitProduct[3]);
 				Genre genre = Genre.valueOf(splitProduct[4]);
 				
-				
-				//creating objects and adding them to ArrayList
+				// Create objects and add them to ArrayList
 				if(splitProduct[0].equals("Vinyl")) {
 					VinylRecordProduct vinylRecord = new VinylRecordProduct(title, price, year, genre);
 					productList.add(vinylRecord);
@@ -95,18 +90,16 @@ public class StockManagerSingleton {
 	
 	public boolean updateItemPrice(MediaProduct product, double newPrice) {
 		for (MediaProduct p : productList) { //Find matching product in productList
-			if (p.equals(product)) { //Make sure the current product matches the one specified
-				p.setPrice(newPrice); //Update the product price to newPrice
+			if (p.equals(product)) { // Make sure the current product matches the one specified
+				p.setPrice(newPrice); // Update the product price to newPrice
 				return true; 
-				
 			}
 		}
 		return false;
 	}
 	
 	public boolean addItem(MediaProduct product) {
-		if (!productList.contains(product)) { //Check if product is not already in productList
-			productList.add(product); //Add product to productList if not
+		if (productList.add(product)) {
 			return true;
 		}
 		return false;
@@ -142,9 +135,9 @@ public class StockManagerSingleton {
 		
 		ArrayList<MediaProduct> list = new ArrayList<MediaProduct>();
 		
-		for (MediaProduct product : productList) {// loop through media inventory 
-			if (product.getPrice() < maxPrice) {// compare product price with the maxprice that is given for function 
-				list.add(new MediaProduct(product));// using the copy constructor so that way we dont lose data in product constructor
+		for (MediaProduct product : productList) {// Loop through media inventory 
+			if (product.getPrice() < maxPrice) {// Compare product price with the maxpPrice that is given for function 
+				list.add(new MediaProduct(product));// Using the copy constructor so that way we don't lose data in product constructor
 			}
 		}
 		return list;
@@ -165,7 +158,6 @@ public class StockManagerSingleton {
 				list.add((VinylRecordProduct) productList.get(i));
 			}
 		}
-		//System.out.println(list.toString());
 		return list;
 	}
 	
@@ -178,7 +170,6 @@ public class StockManagerSingleton {
 				list.add((CDRecordProduct) productList.get(i));
 			}
 		}
-		//System.out.println(list.toString());
 		return list;
 	}
 	
@@ -191,7 +182,6 @@ public class StockManagerSingleton {
 				list.add((TapeRecordProduct) productList.get(i));
 			}
 		}
-		//System.out.println(list.toString());
 		return list;
 	}
 	
