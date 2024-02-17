@@ -153,9 +153,9 @@ public class StockManagerSingleton {
 		
 		ArrayList<VinylRecordProduct> list = new ArrayList<VinylRecordProduct>();
 		
-		for(int i = 0; i < productList.size(); i++) {
-			if(productList.get(i).toString().contains("Vinyl")) {
-				list.add((VinylRecordProduct) productList.get(i));
+		for(MediaProduct product : productList) {
+			if(product instanceof VinylRecordProduct) {
+				list.add(new VinylRecordProduct((VinylRecordProduct) product));
 			}
 		}
 		return list;
@@ -165,9 +165,9 @@ public class StockManagerSingleton {
 		
 		ArrayList<CDRecordProduct> list = new ArrayList<CDRecordProduct>();
 		
-		for(int i = 0; i < productList.size(); i++) {
-			if(productList.get(i).toString().contains("CD")) {
-				list.add((CDRecordProduct) productList.get(i));
+		for(MediaProduct product : productList) {
+			if(product instanceof CDRecordProduct) {
+				list.add(new CDRecordProduct((CDRecordProduct) product));
 			}
 		}
 		return list;
@@ -177,9 +177,9 @@ public class StockManagerSingleton {
 		
 		ArrayList<TapeRecordProduct> list = new ArrayList<TapeRecordProduct>();
 		
-		for(int i = 0; i < productList.size(); i++) {
-			if(productList.get(i).toString().contains("Tape")) {
-				list.add((TapeRecordProduct) productList.get(i));
+		for(MediaProduct product : productList) {
+			if(product instanceof TapeRecordProduct) {
+				list.add(new TapeRecordProduct((TapeRecordProduct) product));
 			}
 		}
 		return list;
